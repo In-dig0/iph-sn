@@ -43,7 +43,7 @@ def main():
     
     
     if st.query_params["sn"] not in sn_list:
-        st.error(f"**ERROR Serial number {st.query_params["sn"]} does not exists!")
+        st.error(f"**ERROR Serial number {st.query_params['sn']} does not exists!")
         st.stop()
     else:
 
