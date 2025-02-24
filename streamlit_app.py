@@ -38,8 +38,8 @@ def main():
     st.title(f":blue[IPH Specification Sheet Portal]")
 
     sn_list = ["25007676", "25007677"]
-    pn_list = ["5F1370116301AN", "5C1440154403AN"]
-    desc_list = ["5F-03450-116-3-M1460-0000N", "5C-04870-154-4-M0343-0000N"]
+    pn_list = ["5C1440154403AN", "5F1370116301AN"]
+    desc_list = ["5C-04870-154-4-M0343-0000N", "5F-03450-116-3-M1460-0000N"]
     
     
     if st.query_params['sn'] not in sn_list:
