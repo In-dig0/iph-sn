@@ -1,2 +1,2 @@
 # iph-sn
-Render PDF document related to product Serian Number
+Render PDF document related to IPH product Serial Number
