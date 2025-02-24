@@ -31,7 +31,9 @@ def main():
     # st.info(f"Product number: {st.query_params["pn"]}", icon="ℹ️")
     # st.info(f"Serial number: {st.query_params["sn"]}", icon="ℹ️")
 
-    st.info(f"{st.query_params}")
+    #st.info(f"{st.query_params}")
+
+    st.title(f"IPH Specification Sheet Portal")
 
     sn_list = ["25007676", "25007677"]
     pn_list = ["5F1370116301AN", "5C1440154403AN"]
