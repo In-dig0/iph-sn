@@ -76,7 +76,7 @@ def main():
 
             if download_button:
                 pdf_filename = f"FIG-{product_nr}.pdf" 
-                pdf_fileobj = f"./files/{pdf_filename}"
+                pdf_fileobj = f"/files/{pdf_filename}"
                 st.write(pdf_fileobj)
                 pdf_viewer(pdf_fileobj)
    
