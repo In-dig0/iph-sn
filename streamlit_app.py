@@ -78,7 +78,7 @@ def main():
                 pdf_filename = f"FIG-{product_nr}.pdf" 
                 pdf_fileobj = f"./files/{pdf_filename}"
                 st.write(pdf_fileobj)
-                #pdf_viewer(f"./files/{pdf_filename}")
+                pdf_viewer(pdf_fileobj)
    
 
 if __name__ == "__main__":
