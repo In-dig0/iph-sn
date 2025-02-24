@@ -28,8 +28,8 @@ def main():
     
     # https://iph-sn-ep33nvbuic6zbq7uqvbxbm.streamlit.app/?sn=25007677&pn=5C1440154403AN
 
-    st.info(f"Product number: {st.query_params["pn"]}")
-    st.info(f"Serial number: {st.query_params["sn"]}")
+    st.info(f"Product number: {st.query_params["pn"]}", icon="ℹ️")
+    st.info(f"Serial number: {st.query_params["sn"]}", icon="ℹ️")
 
     pn_dict = {"pn_code": ["5F1370116301AN", "5C1440154403AN"]}
     sn_dict = {"sn_code": ["25007676", "25007677"]}
@@ -38,7 +38,7 @@ def main():
     st.selectbox(
         label="Product number:",
         options=pn_dict.items(),
-        index=index.pn_dict(st.query_params["pn"]),
+        index=pn_dict.index(st.query_params["pn"]),
         disabled=False
     )
 
