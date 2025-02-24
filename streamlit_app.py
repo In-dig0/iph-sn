@@ -32,7 +32,7 @@ def main():
     st.info(f"Serial number: {st.query_params["sn"]}", icon="ℹ️")
 
     pn_dict = {"pn_code": ["5F1370116301AN", "5C1440154403AN"]}
-    pn_list = list(pn_dict.items())[1]
+    pn_list = list(pn_dict.values())
     st.write(pn_list)
     sn_dict = {"sn_code": ["25007676", "25007677"]}
     desc_dict = {"desc_art": ["5F-03450-116-3-M1460-0000N", "5C-04870-154-4-M0343-0000N"]}
