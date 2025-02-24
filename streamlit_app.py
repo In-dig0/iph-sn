@@ -75,8 +75,10 @@ def main():
             )
 
             if download_button:
-                pdf_file = f"FIG-{product_nr}.pdf" 
-                pdf_viewer("path/to/pdf")
+                pdf_filename = f"FIG-{product_nr}.pdf" 
+                pdf_fileobj = f"./files/{pdf_filename}"
+                st.write(pdf_fileobj)
+                #pdf_viewer(f"./files/{pdf_filename}")
    
 
 if __name__ == "__main__":
