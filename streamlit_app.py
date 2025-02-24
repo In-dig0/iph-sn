@@ -1,6 +1,7 @@
 import streamlit as st
 from browser_detection import browser_detection_engine
 from language_detection import detect_browser_language
+from streamlit_pdf_viewer import pdf_viewer
 
 def main():
     # st.title("Current user session:")
@@ -33,7 +34,8 @@ def main():
 
     #st.info(f"{st.query_params}")
 
-    st.title(f"IPH Specification Sheet Portal")
+    st.sidebar.image("https://iph.it/wp-content/uploads/2020/02/logo-scritta.png", width=140)
+    st.title(f":blue[IPH Specification Sheet Portal]")
 
     sn_list = ["25007676", "25007677"]
     pn_list = ["5F1370116301AN", "5C1440154403AN"]
@@ -70,7 +72,12 @@ def main():
                 label="Download Tech Sheet",
                 type="primary",
                 disabled=False
-            )    
+            )
+
+            if download_button:
+                pdf_file = f"FIG-{product_nr}.pdf" 
+                pdf_viewer("path/to/pdf")
+   
 
 if __name__ == "__main__":
     main()

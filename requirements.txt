@@ -1,2 +1,3 @@
 streamlit-browser-engine
 streamlit-browser-language
+streamlit-pdf-viewer
