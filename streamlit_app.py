@@ -31,5 +31,9 @@ def main():
     st.info(f"Product number: {st.query_params["pn"]}")
     st.info(f"Serial number: {st.query_params["sn"]}")
 
+    pn_dict = {"5F1370116301AN", "5C1440154403AN"}
+    sn_dict = {"25007676", "25007677"}
+    desc_dict = {"5F-03450-116-3-M1460-0000N", "5C-04870-154-4-M0343-0000N"}
+    
 if __name__ == "__main__":
     main()
