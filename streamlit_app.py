@@ -28,5 +28,8 @@ def main():
     
     # https://iph-sn-ep33nvbuic6zbq7uqvbxbm.streamlit.app/?sn=25007677&pn=5C1440154403AN
 
+    st.info(f"Product number: {st.query_params["pn"]}")
+    st.info(f"Serial number: {st.query_params["sn"]}")
+
 if __name__ == "__main__":
     main()
