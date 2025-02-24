@@ -32,7 +32,7 @@ def main():
     # st.info(f"Product number: {st.query_params["pn"]}", icon="ℹ️")
     # st.info(f"Serial number: {st.query_params["sn"]}", icon="ℹ️")
 
-    #st.info(f"{st.query_params}")
+    st.info(f"{st.query_params}")
 
     st.sidebar.image("https://iph.it/wp-content/uploads/2020/02/logo-scritta.png", width=140)
     st.title(f":blue[IPH Specification Sheet Portal]")
