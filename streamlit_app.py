@@ -5,12 +5,8 @@ def main():
     st.title("Current user session:")
     st.subheader("Cookies:")
     st.context.cookies
-<<<<<<< HEAD
     
     st.title("Current context headers:")    
-=======
-    st.subheader("Contest header:")
->>>>>>> 9853473c31538d5743aadc2a8ef00fd997f96ecd
     st.context.headers
     
     st.title("Browser detection engine:") 
