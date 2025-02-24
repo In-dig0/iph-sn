@@ -42,17 +42,17 @@ def main():
     desc_list = ["5F-03450-116-3-M1460-0000N", "5C-04870-154-4-M0343-0000N"]
     
     
-    if st.query_params["sn"] not in sn_list:
+    if st.query_params['sn'] not in sn_list:
         st.error(f"**ERROR Serial number {st.query_params['sn']} does not exists!")
         st.stop()
     else:
 
         with st.container(border=True):   
-            obj_idx = sn_list.index(st.query_params["sn"])
+            obj_idx = sn_list.index(st.query_params['sn'])
             serial_nr = st.selectbox(
                 label="Serial number:",
                 options=sn_list,
-                index=sn_list.index(st.query_params["sn"]),
+                index=sn_list.index(st.query_params['sn']),
                 disabled=True
             )
 
