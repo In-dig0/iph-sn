@@ -31,16 +31,38 @@ def main():
     st.info(f"Product number: {st.query_params["pn"]}", icon="ℹ️")
     st.info(f"Serial number: {st.query_params["sn"]}", icon="ℹ️")
 
-    pn_list = ["5F1370116301AN", "5C1440154403AN"]
-    sn_dict = ["25007676", "25007677"]
-    desc_dict = ["5F-03450-116-3-M1460-0000N", "5C-04870-154-4-M0343-0000N"]
 
-    st.selectbox(
-        label="Product number:",
-        options=pn_list,
-        index=pn_list.index(st.query_params["pn"]),
-        disabled=False
-    )
+    sn_dict = ["25007676", "25007677"]
+    pn_list = ["5F1370116301AN", "5C1440154403AN"]
+    desc_list = ["5F-03450-116-3-M1460-0000N", "5C-04870-154-4-M0343-0000N"]
+
+
+    with st.container():
+        obj_idx = sn_list.index(st.query_params["sn"])
+        serial_nr = st.selectbox(
+            label="Serial number:",
+            options=sn_list,
+            index=sn_list.index(st.query_params["sn"]),
+            disabled=True
+        )
+
+        product_nr = st.text_input(
+            label="Product number:",
+            value=pn_list[obj_idx],
+            disabled=True
+        )
+
+        product_desc = st.text_input(
+            label="Product description:",
+            value=desc_list[obj_idx],
+            disabled=True
+        )
+
+        download_button = st.button(
+            label="Download Tech Sheet",
+            type="primary",
+            disabled=False
+        )    
 
 if __name__ == "__main__":
     main()
