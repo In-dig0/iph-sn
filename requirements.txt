@@ -1,1 +1,2 @@
 streamlit-browser-engine
+streamlit-browser-language

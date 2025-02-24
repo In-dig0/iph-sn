@@ -1,5 +1,6 @@
 import streamlit as st
 from browser_detection import browser_detection_engine
+from language_detection import detect_browser_language
 
 def main():
     st.title("Current user session:")
@@ -12,6 +13,12 @@ def main():
     st.title("Browser detection engine:") 
     value = browser_detection_engine()
     st.write(value)
+
+    st.title("Browser language:") 
+    browser_language = detect_browser_language()
+    # Display the detected language for debugging
+    st.write(f"Detected browser language: {browser_language}")
+
 
     st.title("Query parameters in app's URL")
     st.query_params
