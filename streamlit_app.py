@@ -28,9 +28,10 @@ def main():
     
     # https://iph-sn-ep33nvbuic6zbq7uqvbxbm.streamlit.app/?sn=25007677&pn=5C1440154403AN
 
-    st.info(f"Product number: {st.query_params["pn"]}", icon="ℹ️")
-    st.info(f"Serial number: {st.query_params["sn"]}", icon="ℹ️")
+    # st.info(f"Product number: {st.query_params["pn"]}", icon="ℹ️")
+    # st.info(f"Serial number: {st.query_params["sn"]}", icon="ℹ️")
 
+    st.info(f"st.query_params")
 
     sn_dict = ["25007676", "25007677"]
     pn_list = ["5F1370116301AN", "5C1440154403AN"]
