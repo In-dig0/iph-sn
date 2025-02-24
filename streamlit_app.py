@@ -36,34 +36,39 @@ def main():
     sn_list = ["25007676", "25007677"]
     pn_list = ["5F1370116301AN", "5C1440154403AN"]
     desc_list = ["5F-03450-116-3-M1460-0000N", "5C-04870-154-4-M0343-0000N"]
+    
+    
+    if st.query_params["sn"] not in sn_list:
+        st.error(f"**ERROR Serial number {st.query_params["sn"]} does not exists!")
+        st.stop()
+    else:
 
+        with st.container(border=True):   
+            obj_idx = sn_list.index(st.query_params["sn"])
+            serial_nr = st.selectbox(
+                label="Serial number:",
+                options=sn_list,
+                index=sn_list.index(st.query_params["sn"]),
+                disabled=True
+            )
 
-    with st.container():
-        obj_idx = sn_list.index(st.query_params["sn"])
-        serial_nr = st.selectbox(
-            label="Serial number:",
-            options=sn_list,
-            index=sn_list.index(st.query_params["sn"]),
-            disabled=True
-        )
+            product_nr = st.text_input(
+                label="Product number:",
+                value=pn_list[obj_idx],
+                disabled=True
+            )
 
-        product_nr = st.text_input(
-            label="Product number:",
-            value=pn_list[obj_idx],
-            disabled=True
-        )
+            product_desc = st.text_input(
+                label="Product description:",
+                value=desc_list[obj_idx],
+                disabled=True
+            )
 
-        product_desc = st.text_input(
-            label="Product description:",
-            value=desc_list[obj_idx],
-            disabled=True
-        )
-
-        download_button = st.button(
-            label="Download Tech Sheet",
-            type="primary",
-            disabled=False
-        )    
+            download_button = st.button(
+                label="Download Tech Sheet",
+                type="primary",
+                disabled=False
+            )    
 
 if __name__ == "__main__":
     main()
