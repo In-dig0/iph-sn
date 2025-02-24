@@ -37,12 +37,12 @@ def main():
     sn_dict = {"sn_code": ["25007676", "25007677"]}
     desc_dict = {"desc_art": ["5F-03450-116-3-M1460-0000N", "5C-04870-154-4-M0343-0000N"]}
 
-    st.selectbox(
-        label="Product number:",
-        options=pn_list,
-        index=pn_list.index(st.query_params["pn"]),
-        disabled=False
-    )
+    # st.selectbox(
+    #     label="Product number:",
+    #     options=pn_list,
+    #     index=pn_list.index(st.query_params["pn"]),
+    #     disabled=False
+    # )
 
 if __name__ == "__main__":
     main()
