@@ -39,7 +39,7 @@ def main():
 
     st.selectbox(
         label="Product number:",
-        options=pn_dict.items(),
+        options=pn_list,
         index=pn_list.index(st.query_params["pn"]),
         disabled=False
     )
