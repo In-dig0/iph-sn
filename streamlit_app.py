@@ -42,43 +42,46 @@ def main():
     desc_list = ["5C-04870-154-4-M0343-0000N", "5F-03450-116-3-M1460-0000N"]
     
     
-    if st.query_params['sn'] not in sn_list:
-        st.error(f"**ERROR Serial number {st.query_params['sn']} does not exists!")
+    sn = st.query_params.get('sn', None)
+    if sn is None:
+        st.error("**ERROR:** Nessun numero seriale specificato nell'URL. Aggiungi '?sn=NUMERO' all'URL.")
         st.stop()
-    else:
+    if sn not in sn_list:
+        st.error(f"**ERROR:** Serial number {sn} does not exists!")
+        st.stop()
 
-        with st.container(border=True):   
-            obj_idx = sn_list.index(st.query_params['sn'])
-            serial_nr = st.selectbox(
-                label="Serial number:",
-                options=sn_list,
-                index=sn_list.index(st.query_params['sn']),
-                disabled=True
-            )
+    with st.container(border=True):   
+        obj_idx = sn_list.index(st.query_params['sn'])
+        serial_nr = st.selectbox(
+            label="Serial number:",
+            options=sn_list,
+            index=sn_list.index(st.query_params['sn']),
+            disabled=True
+        )
 
-            product_nr = st.text_input(
-                label="Product number:",
-                value=pn_list[obj_idx],
-                disabled=True
-            )
+        product_nr = st.text_input(
+            label="Product number:",
+            value=pn_list[obj_idx],
+            disabled=True
+        )
 
-            product_desc = st.text_input(
-                label="Product description:",
-                value=desc_list[obj_idx],
-                disabled=True
-            )
+        product_desc = st.text_input(
+            label="Product description:",
+            value=desc_list[obj_idx],
+            disabled=True
+        )
 
-            download_button = st.button(
-                label="Download Tech Sheet",
-                type="primary",
-                disabled=False
-            )
+        download_button = st.button(
+            label="Download Tech Sheet",
+            type="primary",
+            disabled=False
+        )
 
-            if download_button:
-                pdf_filename = f"FIG-{product_nr}.pdf" 
-                pdf_fileobj = f"/files/{pdf_filename}"
-                st.write(pdf_fileobj)
-                pdf_viewer(pdf_fileobj)
+        if download_button:
+            pdf_filename = f"FIG-{product_nr}.pdf" 
+            pdf_fileobj = f"/files/{pdf_filename}"
+            st.write(pdf_fileobj)
+            pdf_viewer(pdf_fileobj)
    
 
 if __name__ == "__main__":
