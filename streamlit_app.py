@@ -14,7 +14,9 @@ def get_binary_file_downloader_html(file_path, file_label):
         label=file_label,
         data=data,
         file_name=os.path.basename(file_path),
-        mime="application/pdf"
+        mime="application/pdf",
+        key="download-pdf",
+        icon=":material/download:"
     )
 
 
@@ -108,7 +110,8 @@ def main():
         search_button = st.button(
             label="Search",
             type="primary",
-            disabled=False
+            disabled=False,
+            icon=":material/search:"
         )
 
     if search_button:
@@ -124,9 +127,6 @@ def main():
                 get_binary_file_downloader_html(pdf_path, "PDF Download")
             else:
                 st.error(f"File not found: {pdf_path}")
-                # Visualizza i file disponibili nella cartella per il debug
-                #files_in_dir = os.listdir("files")
-                #st.write("File disponibili nella cartella 'files':", files_in_dir)
         except Exception as e:
             st.error(f"**ERROR reading the PDF file: {e}")
 
