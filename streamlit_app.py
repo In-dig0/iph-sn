@@ -87,7 +87,7 @@ def main():
         )
 
         # Corretto qui: otteniamo il risultato del pulsante in una variabile
-        donwload_button = st.button(
+        download_button = st.button(
             label="Download Tech Sheet",
             type="primary",
             disabled=False
