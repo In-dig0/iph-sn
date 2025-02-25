@@ -86,24 +86,31 @@ def main():
             disabled=True
         )
 
-    if download_button:
-        pdf_filename = f"FIG-{product_nr}.pdf"
-        # Percorso relativo alla cartella files
-        pdf_path = os.path.join("files", pdf_filename)
-        
-        try:
-            # Verifica se il file esiste
-            if os.path.exists(pdf_path):
-                st.success(f"File trovato: {pdf_path}")
-                # Utilizza la funzione di download
-                get_binary_file_downloader_html(pdf_path, "Scarica PDF")
-            else:
-                st.error(f"File non trovato: {pdf_path}")
-                # Visualizza i file disponibili nella cartella per il debug
-                files_in_dir = os.listdir("files")
-                st.write("File disponibili nella cartella 'files':", files_in_dir)
-        except Exception as e:
-            st.error(f"Errore nell'accesso al file: {e}")
+        # Corretto qui: otteniamo il risultato del pulsante in una variabile
+        donwload_button = st.button(
+            label="Download Tech Sheet",
+            type="primary",
+            disabled=False
+        )
+
+        if download_button:
+            pdf_filename = f"FIG-{product_nr}.pdf"
+            # Percorso relativo alla cartella files
+            pdf_path = os.path.join("files", pdf_filename)
+            
+            try:
+                # Verifica se il file esiste
+                if os.path.exists(pdf_path):
+                    st.success(f"File trovato: {pdf_path}")
+                    # Utilizza la funzione di download
+                    get_binary_file_downloader_html(pdf_path, "Scarica PDF")
+                else:
+                    st.error(f"File non trovato: {pdf_path}")
+                    # Visualizza i file disponibili nella cartella per il debug
+                    files_in_dir = os.listdir("files")
+                    st.write("File disponibili nella cartella 'files':", files_in_dir)
+            except Exception as e:
+                st.error(f"Errore nell'accesso al file: {e}")
 
 
         # pdf_filename = f"FIG-{product_nr}.pdf" 
