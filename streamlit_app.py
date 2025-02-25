@@ -87,7 +87,7 @@ def main():
             disabled=True
         )
     
-    st.subheader(f":blue[Attachment section]")  
+    st.subheader(f":grey[Attachment section]")  
     with st.container(border=True):  
         attachment_type = st.selectbox(
             label=":orange[Attachment type]",
