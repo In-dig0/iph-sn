@@ -115,41 +115,37 @@ def main():
         )
 
     if search_button:
-        pdf_filename = f"FIG-{product_nr}.pdf"
+        if attachment_type == 'Specification sheet':
+            pdf_filename = f"FIG-{product_nr}.pdf"
         # Percorso relativo alla cartella files
-        pdf_path = os.path.join("files", pdf_filename)
+            pdf_path = os.path.join("files", pdf_filename)
         
-        try:
-            # Verifica se il file esiste
-            if os.path.exists(pdf_path):
-                st.success(f"File found: {pdf_path}")
-                # Utilizza la funzione di download
-                get_binary_file_downloader_html(pdf_path, "PDF Download")
-            else:
-                st.error(f"File not found: {pdf_path}")
-        except Exception as e:
-            st.error(f"**ERROR reading the PDF file: {e}")
+            try:
+                # Verifica se il file esiste
+                if os.path.exists(pdf_path):
+                    st.success(f"File found: {pdf_path}")
+                    # Utilizza la funzione di download
+                    get_binary_file_downloader_html(pdf_path, "PDF Download")
+                else:
+                    st.error(f"File not found: {pdf_path}")
+            except Exception as e:
+                st.error(f"**ERROR reading the PDF file: {e}")
+        elif attachment_type == 'Other':
+            pdf_filename = f"OTH-{product_nr}.pdf"
+        # Percorso relativo alla cartella files
+            pdf_path = os.path.join("files", pdf_filename)
+        
+            try:
+                # Verifica se il file esiste
+                if os.path.exists(pdf_path):
+                    st.success(f"File found: {pdf_path}")
+                    # Utilizza la funzione di download
+                    get_binary_file_downloader_html(pdf_path, "PDF Download")
+                else:
+                    st.error(f"File not found: {pdf_path}")
+            except Exception as e:
+                st.error(f"**ERROR reading the PDF file: {e}")
 
-
-        # pdf_filename = f"FIG-{product_nr}.pdf" 
-        # #pdf_buffer = modules.servant.create_pdf_buffer(df_out)
-        # st.download_button(
-        #     label="Download PDF",
-        #     data=f"files/{pdf_filename}",
-        #     file_name=pdf_filename,
-        #     mime="application/pdf",
-        #     key="download-pdf",
-        #     help="Download PDF",
-        #     type="primary",
-        #     icon=":material/download:"
-        # ) 
-
-        #if download_button:
-            # pdf_filename = f"FIG-{product_nr}.pdf" 
-            # pdf_fileobj = f"files/{pdf_filename}"
-            # st.write(pdf_fileobj)
-            # pdf_viewer(pdf_fileobj)
-            # Aggiungi il pulsante di download
             
            
    
