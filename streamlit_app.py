@@ -59,13 +59,13 @@ def main():
     
     sn = st.query_params.get('sn', None)
     if sn is None:
-        st.error("**ERROR:** URL doesn't containt serial number. Add '?sn=SERIAL_NUMBER' to the URL.")
+        st.error("**ERROR: URL doesn't containt serial number. Add '?sn=SERIAL_NUMBER' to the URL.")
         st.stop()
     if sn not in sn_list:
-        st.error(f"**ERROR:** Serial number {sn} does not exists!")
+        st.error(f"**ERROR: Serial number {sn} does not exists!")
         st.stop()
 
-    st.subheader(f":blue[Product section]")
+    st.subheader(f":grey[Product section]")
     with st.container(border=True):   
         obj_idx = sn_list.index(st.query_params['sn'])
         serial_nr = st.selectbox(
@@ -111,24 +111,24 @@ def main():
             disabled=False
         )
 
-        if search_button:
-            pdf_filename = f"FIG-{product_nr}.pdf"
-            # Percorso relativo alla cartella files
-            pdf_path = os.path.join("files", pdf_filename)
-            
-            try:
-                # Verifica se il file esiste
-                if os.path.exists(pdf_path):
-                    st.success(f"File found: {pdf_path}")
-                    # Utilizza la funzione di download
-                    get_binary_file_downloader_html(pdf_path, "PDF Download")
-                else:
-                    st.error(f"File non trovato: {pdf_path}")
-                    # Visualizza i file disponibili nella cartella per il debug
-                    files_in_dir = os.listdir("files")
-                    st.write("File disponibili nella cartella 'files':", files_in_dir)
-            except Exception as e:
-                st.error(f"Errore nell'accesso al file: {e}")
+    if search_button:
+        pdf_filename = f"FIG-{product_nr}.pdf"
+        # Percorso relativo alla cartella files
+        pdf_path = os.path.join("files", pdf_filename)
+        
+        try:
+            # Verifica se il file esiste
+            if os.path.exists(pdf_path):
+                st.success(f"File found: {pdf_path}")
+                # Utilizza la funzione di download
+                get_binary_file_downloader_html(pdf_path, "PDF Download")
+            else:
+                st.error(f"File not found: {pdf_path}")
+                # Visualizza i file disponibili nella cartella per il debug
+                #files_in_dir = os.listdir("files")
+                #st.write("File disponibili nella cartella 'files':", files_in_dir)
+        except Exception as e:
+            st.error(f"**ERROR reading the PDF file: {e}")
 
 
         # pdf_filename = f"FIG-{product_nr}.pdf" 
