@@ -71,31 +71,27 @@ def main():
             disabled=True
         )
 
-        download_button = st.button(
-            label="Download Tech Sheet",
+        pdf_filename = f"FIG-{product_nr}.pdf" 
+        #pdf_buffer = modules.servant.create_pdf_buffer(df_out)
+        st.download_button(
+            label="Download PDF",
+            data=f"files/{pdf_filename}",
+            file_name=pdf_filename,
+            mime="application/pdf",
+            key="download-pdf",
+            help="Download PDF",
             type="primary",
-            disabled=False
-        )
+            icon=":material/download:"
+        ) 
 
-        if download_button:
+        #if download_button:
             # pdf_filename = f"FIG-{product_nr}.pdf" 
             # pdf_fileobj = f"files/{pdf_filename}"
             # st.write(pdf_fileobj)
             # pdf_viewer(pdf_fileobj)
             # Aggiungi il pulsante di download
             
-            pdf_filename = f"FIG-{product_nr}.pdf" 
-            #pdf_buffer = modules.servant.create_pdf_buffer(df_out)
-            st.download_button(
-                label="Download PDF",
-                data=f"files/{pdf_filename}",
-                file_name=pdf_filename,
-                mime="application/pdf",
-                key="download-pdf",
-                help="Download PDF",
-                type="primary",
-                icon=":material/download:"
-            )            
+           
    
 
 if __name__ == "__main__":
