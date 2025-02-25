@@ -27,7 +27,7 @@ def main():
     # Example:
     # https://your_app.streamlit.app/?first_key=1&second_key=two
     
-    # https://iph-sn-ep33nvbuic6zbq7uqvbxbm.streamlit.app/?sn=25007677&pn=5C1440154403AN
+    # https://iph-sn-ep33nvbuic6zbq7uqvbxbm.streamlit.app/?sn=25007677
 
     # st.info(f"Product number: {st.query_params["pn"]}", icon="ℹ️")
     # st.info(f"Serial number: {st.query_params["sn"]}", icon="ℹ️")
@@ -44,7 +44,7 @@ def main():
     
     sn = st.query_params.get('sn', None)
     if sn is None:
-        st.error("**ERROR:** Nessun numero seriale specificato nell'URL. Aggiungi '?sn=NUMERO' all'URL.")
+        st.error("**ERROR:** URL doesn't containt serial number. Add '?sn=SERIAL_NUMBER' to the URL.")
         st.stop()
     if sn not in sn_list:
         st.error(f"**ERROR:** Serial number {sn} does not exists!")
@@ -79,7 +79,7 @@ def main():
 
         if download_button:
             pdf_filename = f"FIG-{product_nr}.pdf" 
-            pdf_fileobj = f"/files/{pdf_filename}"
+            pdf_fileobj = f"files/{pdf_filename}"
             st.write(pdf_fileobj)
             pdf_viewer(pdf_fileobj)
    
