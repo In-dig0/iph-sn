@@ -89,7 +89,7 @@ def main():
             st.download_button(
                 label="Download PDF",
                 data=f"files/{pdf_filename}",
-                file_name=file_name,
+                file_name=pdf_filename,
                 mime="application/pdf",
                 key="download-pdf",
                 help="Download PDF",
