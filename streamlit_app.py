@@ -88,7 +88,7 @@ def main():
             #pdf_buffer = modules.servant.create_pdf_buffer(df_out)
             st.download_button(
                 label="Download PDF",
-                data=f"files/{pdf_filename}"
+                data=f"files/{pdf_filename}",
                 file_name=file_name,
                 mime="application/pdf",
                 key="download-pdf",
