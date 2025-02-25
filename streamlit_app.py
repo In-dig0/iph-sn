@@ -65,6 +65,7 @@ def main():
         st.error(f"**ERROR:** Serial number {sn} does not exists!")
         st.stop()
 
+    st.subheader(f"Product section")
     with st.container(border=True):   
         obj_idx = sn_list.index(st.query_params['sn'])
         serial_nr = st.selectbox(
@@ -85,7 +86,17 @@ def main():
             value=desc_list[obj_idx],
             disabled=True
         )
+    
+    st.subheader(f"Attachment section")  
+    with st.container(border=True):  
+        attachment_type = st.selectbox(
+            label="Attachment type:",
+            options=['Specification sheet','Other'],
+            index=0,
+            disabled=False
+        )
 
+    with st.container(border=True):  
         language = st.selectbox(
             label="Language:",
             options=['it','en'],
@@ -95,13 +106,13 @@ def main():
 
 
         # Corretto qui: otteniamo il risultato del pulsante in una variabile
-        download_button = st.button(
-            label="Download Tech Sheet",
+        search_button = st.button(
+            label="Search",
             type="primary",
             disabled=False
         )
 
-        if download_button:
+        if search_button:
             pdf_filename = f"FIG-{product_nr}.pdf"
             # Percorso relativo alla cartella files
             pdf_path = os.path.join("files", pdf_filename)
@@ -109,9 +120,9 @@ def main():
             try:
                 # Verifica se il file esiste
                 if os.path.exists(pdf_path):
-                    st.success(f"File trovato: {pdf_path}")
+                    st.success(f"File found: {pdf_path}")
                     # Utilizza la funzione di download
-                    get_binary_file_downloader_html(pdf_path, "Scarica PDF")
+                    get_binary_file_downloader_html(pdf_path, "PDF Download")
                 else:
                     st.error(f"File non trovato: {pdf_path}")
                     # Visualizza i file disponibili nella cartella per il debug
