@@ -47,7 +47,7 @@ def main():
     # st.info(f"Product number: {st.query_params["pn"]}", icon="ℹ️")
     # st.info(f"Serial number: {st.query_params["sn"]}", icon="ℹ️")
 
-    st.info(f"{st.query_params}")
+    #st.info(f"{st.query_params}")
 
     st.sidebar.image("https://iph.it/wp-content/uploads/2020/02/logo-scritta.png", width=140)
     st.title(f":blue[IPH Specification Sheet Portal]")
@@ -65,39 +65,39 @@ def main():
         st.error(f"**ERROR:** Serial number {sn} does not exists!")
         st.stop()
 
-    st.subheader(f"Product section")
+    st.subheader(f":blue[Product section]")
     with st.container(border=True):   
         obj_idx = sn_list.index(st.query_params['sn'])
         serial_nr = st.selectbox(
-            label="Serial number:",
+            label=":orange[Serial number]",
             options=sn_list,
             index=sn_list.index(st.query_params['sn']),
             disabled=True
         )
 
         product_nr = st.text_input(
-            label="Product number:",
+            label=":orange[Product number]",
             value=pn_list[obj_idx],
             disabled=True
         )
 
         product_desc = st.text_input(
-            label="Product description:",
+            label=":orange[Product description]",
             value=desc_list[obj_idx],
             disabled=True
         )
     
-    st.subheader(f"Attachment section")  
+    st.subheader(f":blue[Attachment section]")  
     with st.container(border=True):  
         attachment_type = st.selectbox(
-            label="Attachment type:",
+            label=":orange[Attachment type]",
             options=['Specification sheet','Other'],
             index=0,
             disabled=False
         )
 
         language = st.selectbox(
-            label="Language:",
+            label=":orange[Language]",
             options=['it','en'],
             index=0,
             disabled=False
