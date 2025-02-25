@@ -2,6 +2,21 @@ import streamlit as st
 from browser_detection import browser_detection_engine
 from language_detection import detect_browser_language
 from streamlit_pdf_viewer import pdf_viewer
+import os
+import base64
+
+# Funzione per leggere e codificare il file
+def get_binary_file_downloader_html(file_path, file_label):
+    with open(file_path, 'rb') as f:
+        data = f.read()
+    b64 = base64.b64encode(data).decode()
+    return st.download_button(
+        label=file_label,
+        data=data,
+        file_name=os.path.basename(file_path),
+        mime="application/pdf"
+    )
+
 
 def main():
     # st.title("Current user session:")
@@ -71,18 +86,38 @@ def main():
             disabled=True
         )
 
-        pdf_filename = f"FIG-{product_nr}.pdf" 
-        #pdf_buffer = modules.servant.create_pdf_buffer(df_out)
-        st.download_button(
-            label="Download PDF",
-            data=f"files/{pdf_filename}",
-            file_name=pdf_filename,
-            mime="application/pdf",
-            key="download-pdf",
-            help="Download PDF",
-            type="primary",
-            icon=":material/download:"
-        ) 
+    if download_button:
+        pdf_filename = f"FIG-{product_nr}.pdf"
+        # Percorso relativo alla cartella files
+        pdf_path = os.path.join("files", pdf_filename)
+        
+        try:
+            # Verifica se il file esiste
+            if os.path.exists(pdf_path):
+                st.success(f"File trovato: {pdf_path}")
+                # Utilizza la funzione di download
+                get_binary_file_downloader_html(pdf_path, "Scarica PDF")
+            else:
+                st.error(f"File non trovato: {pdf_path}")
+                # Visualizza i file disponibili nella cartella per il debug
+                files_in_dir = os.listdir("files")
+                st.write("File disponibili nella cartella 'files':", files_in_dir)
+        except Exception as e:
+            st.error(f"Errore nell'accesso al file: {e}")
+
+
+        # pdf_filename = f"FIG-{product_nr}.pdf" 
+        # #pdf_buffer = modules.servant.create_pdf_buffer(df_out)
+        # st.download_button(
+        #     label="Download PDF",
+        #     data=f"files/{pdf_filename}",
+        #     file_name=pdf_filename,
+        #     mime="application/pdf",
+        #     key="download-pdf",
+        #     help="Download PDF",
+        #     type="primary",
+        #     icon=":material/download:"
+        # ) 
 
         #if download_button:
             # pdf_filename = f"FIG-{product_nr}.pdf" 
