@@ -86,6 +86,14 @@ def main():
             disabled=True
         )
 
+        language = st.selectbox(
+            label="Language:",
+            options=['it','en'],
+            index=0,
+            disabled=False
+        )
+
+
         # Corretto qui: otteniamo il risultato del pulsante in una variabile
         download_button = st.button(
             label="Download Tech Sheet",
