@@ -96,7 +96,6 @@ def main():
             disabled=False
         )
 
-    with st.container(border=True):  
         language = st.selectbox(
             label="Language:",
             options=['it','en'],
