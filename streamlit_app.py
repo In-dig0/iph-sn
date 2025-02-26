@@ -69,7 +69,8 @@ def main():
         st.stop()
 
     st.subheader(f":grey[Product section]")
-    value = browser_detection_engine()
+    with st.expander():
+        value = browser_detection_engine()
     st.write(value)
     with st.container(border=True):   
         obj_idx = sn_list.index(st.query_params['sn'])
