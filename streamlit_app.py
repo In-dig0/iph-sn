@@ -105,7 +105,7 @@ def main():
         language = st.selectbox(
             label=":orange[Language]",
             options=browser_language_option,
-            index=browser_language_option.index(browser_language)
+            index=browser_language_option.index(browser_language),
             disabled=False
         )
 
