@@ -109,7 +109,6 @@ def main():
             disabled=False
         )
 
-        browser_language = detect_browser_language()
 
         # Corretto qui: otteniamo il risultato del pulsante in una variabile
         search_button = st.button(
