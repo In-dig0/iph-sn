@@ -52,6 +52,7 @@ def main():
     #st.info(f"{st.query_params}")
 
     st.sidebar.image("https://iph.it/wp-content/uploads/2020/02/logo-scritta.png", width=140)
+
     st.title(f":blue[IPH Specification Sheet Portal]")
 
     sn_list = ["25007676", "25007677"]
@@ -68,6 +69,8 @@ def main():
         st.stop()
 
     st.subheader(f":grey[Product section]")
+    value = browser_detection_engine()
+    st.write(value)
     with st.container(border=True):   
         obj_idx = sn_list.index(st.query_params['sn'])
         serial_nr = st.selectbox(
