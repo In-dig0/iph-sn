@@ -69,9 +69,9 @@ def main():
         st.stop()
 
     st.subheader(f":grey[Product section]")
-    with st.expander():
+    with st.expander("Device browser info"):
         value = browser_detection_engine()
-    st.write(value)
+        st.write(value)
     with st.container(border=True):   
         obj_idx = sn_list.index(st.query_params['sn'])
         serial_nr = st.selectbox(
