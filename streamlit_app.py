@@ -118,9 +118,9 @@ def main():
             st.warning("Please select language and attachment type first!", icon="⚠️")
             st.stop()
         folder_option = {"Specification sheet":"tech_sheet", "Other":"other"}
-        attach_prefix_name = {"Specification sheet": "FIG", "Other": "OTH"}
+        attachment_prefix = {"Specification sheet": "FIG", "Other": "OTH"}
         file_folder = f"files/{folder_option[selected_attachment_type]}/{selected_language}/"
-        pdf_filename = f"{attach_prefix_name[selected_attachment_type]}-{product_nr}.pdf"
+        pdf_filename = f"{attachment_prefix[selected_attachment_type]}-{product_nr}.pdf"
         # Percorso relativo alla cartella files
         pdf_path = os.path.join(file_folder, pdf_filename)
         
