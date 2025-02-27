@@ -117,25 +117,25 @@ def main():
             st.warning("Please select language and attachment type first!", icon="⚠️")
             st.stop()
 
-        submitted = st.form_submit_button(label="Search", type="primary", icon=":material/search:")
-        if submitted:
-            folder_option = {"Specification sheet":"tech_sheet", "Other":"other"}
-            attach_prefix_name = {"Specification sheet": "FIG", "Other": "OTH"}
-            file_folder = f"files/{folder_option[selected_attachment_type]}/{selected_language}/"
-            pdf_filename = f"{attach_prefix_name[selected_attachment_type]}-{product_nr}.pdf"
-            # Percorso relativo alla cartella files
-            pdf_path = os.path.join(file_folder, pdf_filename)
-            
-            try:
-                # Verifica se il file esiste
-                if os.path.exists(pdf_path):
-                    st.success(f"File found: {pdf_path}")
-                    # Utilizza la funzione di download
-                    get_binary_file_downloader_html(pdf_path, "Download")
-                else:
-                    st.error(f"File not found: {pdf_path}")
-            except Exception as e:
-                st.error(f"**ERROR reading the PDF file: {e}")
+    submitted = st.form_submit_button(label="Search", type="primary", icon=":material/search:")
+    if submitted:
+        folder_option = {"Specification sheet":"tech_sheet", "Other":"other"}
+        attach_prefix_name = {"Specification sheet": "FIG", "Other": "OTH"}
+        file_folder = f"files/{folder_option[selected_attachment_type]}/{selected_language}/"
+        pdf_filename = f"{attach_prefix_name[selected_attachment_type]}-{product_nr}.pdf"
+        # Percorso relativo alla cartella files
+        pdf_path = os.path.join(file_folder, pdf_filename)
+        
+        try:
+            # Verifica se il file esiste
+            if os.path.exists(pdf_path):
+                st.success(f"File found: {pdf_path}")
+                # Utilizza la funzione di download
+                get_binary_file_downloader_html(pdf_path, "Download")
+            else:
+                st.error(f"File not found: {pdf_path}, icon="🚨")
+        except Exception as e:
+            st.error(f"**ERROR reading the PDF file: {e}", icon="🚨")
         
         
    
