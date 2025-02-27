@@ -94,31 +94,31 @@ def main():
         )
     
     st.subheader(f":grey[Attachment section]")  
-    with st.container(border=True):  
+    #with st.container(border=True):  
         #browser_detected_language = detect_browser_language().strip()
         #st.write(type(browser_detected_language))
-        browser_language_option = ['it','en']
-        language = st.selectbox(
-            label=":orange[Language]",
-            options=browser_language_option,
-            index=browser_language_option.index(detect_browser_language()),
-            #index=None,
-            disabled=False
-        )
+    browser_language_option = ['it','en']
+    language = st.selectbox(
+        label=":orange[Language]",
+        options=browser_language_option,
+        index=browser_language_option.index(detect_browser_language()),
+        #index=None,
+        disabled=False
+    )
 
-        attachment_type = st.selectbox(
-            label=":orange[Attachment type]",
-            options=['Specification sheet','Other'],
-            index=0,
-            disabled=False
-        )
+    attachment_type = st.selectbox(
+        label=":orange[Attachment type]",
+        options=['Specification sheet','Other'],
+        index=0,
+        disabled=False
+    )
 
-        search_button = st.button(
-            label="Search",
-            type="primary",
-            disabled=False,
-            icon=":material/search:"
-        )
+    search_button = st.button(
+        label="Search",
+        type="primary",
+        disabled=False,
+        icon=":material/search:"
+    )
 
     if search_button:
         if attachment_type == 'Specification sheet':
