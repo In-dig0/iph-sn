@@ -118,6 +118,7 @@ def main():
             st.stop()
 
         submitted = st.form_submit_button(label="Search", type="primary", icon=":material/search:")
+        st.write(f"{selected_language} - {selected_attachment_type}")
     
     if submitted:
         folder_option = {"Specification sheet":"tech_sheet", "Other":"other"}
