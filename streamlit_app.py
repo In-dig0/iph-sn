@@ -72,9 +72,10 @@ def main():
     
     with st.expander("Device browser info"):
         browser_values = browser_detection_engine()
-        st.write(f"Browser values:\n{browser_values}")
+        st.write(f"Browser values:")
+        st.write(browser_values)
         browser_detected_language = detect_browser_language()
-        st.write(f"Browser language: {browser_detected_language}")
+        st.write(f"Browser language:\n{browser_detected_language}")
 
     with st.container(border=True):   
         obj_idx = sn_list.index(st.query_params['sn'])
