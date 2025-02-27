@@ -95,8 +95,8 @@ def main():
     
     st.subheader(f":grey[Attachment section]")  
     with st.container(border=True):  
-        browser_detected_language = detect_browser_language()
-        st.write(type(browser_detected_language))
+        browser_detected_language = detect_browser_language().strip()
+        #st.write(type(browser_detected_language))
         browser_language_option = ['it','en']
         language = st.selectbox(
             label=":orange[Language]",
