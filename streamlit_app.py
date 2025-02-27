@@ -98,7 +98,7 @@ def main():
         #browser_detected_language = detect_browser_language().strip()
         #st.write(type(browser_detected_language))
         browser_language_option = ['it','en']
-        language = st.selectbox(
+        select_language = st.selectbox(
             label=":orange[Language]",
             options=browser_language_option,
             index=browser_language_option.index(detect_browser_language()),
@@ -122,6 +122,7 @@ def main():
 
     if search_button:
         if attachment_type == 'Specification sheet':
+            file_folder = f"files/{select_language}/"
             pdf_filename = f"FIG-{product_nr}.pdf"
         # Percorso relativo alla cartella files
             pdf_path = os.path.join("files", pdf_filename)
