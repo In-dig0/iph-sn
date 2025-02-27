@@ -133,9 +133,9 @@ def main():
                 # Utilizza la funzione di download
                 get_binary_file_downloader_html(pdf_path, "Download")
             else:
-                st.error(f"File not found: {pdf_path}, icon="🚨")
+                st.error(f"File not found: {pdf_path}", icon='🚨')
         except Exception as e:
-            st.error(f"**ERROR reading the PDF file: {e}", icon="🚨")
+            st.error(f"**ERROR reading the PDF file: {e}", icon='🚨')
         
         
    
