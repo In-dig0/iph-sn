@@ -50,7 +50,7 @@ def main():
         browser_values = browser_detection_engine()
         st.write(f"Browser values:")
         st.write(browser_values)
-        browser_detected_language = detect_browser_language()[0:1]
+        browser_detected_language = detect_browser_language()[0:2]
         st.write(f"Browser language:\n{browser_detected_language}")
 
     st.subheader(f":grey[Product section]")
