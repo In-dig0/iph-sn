@@ -131,7 +131,7 @@ def main():
                 if os.path.exists(pdf_path):
                     st.success(f"File found: {pdf_path}")
                     # Utilizza la funzione di download
-                    get_binary_file_downloader_html(pdf_path, "PDF Download")
+                    get_binary_file_downloader_html(pdf_path, "Download")
                 else:
                     st.error(f"File not found: {pdf_path}")
             except Exception as e:
