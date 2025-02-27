@@ -121,7 +121,7 @@ def main():
         )
 
     if search_button:
-        folder_option = {"Specification sheet":"tech_sheet"}
+        folder_option = {"Specification sheet":"tech_sheet", "Other":"other"}
         attach_prefix_name = {"Specification sheet": "FIG", "Other": "OTH"}
         file_folder = f"files/{folder_option[attachment_type]}/{select_language}/"
         pdf_filename = f"{attach_prefix_name[attachment_type]}-{product_nr}.pdf"
