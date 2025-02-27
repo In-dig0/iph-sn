@@ -101,7 +101,7 @@ def main():
             index=0,
             disabled=False
         )
-        browser_language = detect_browser_language()
+        #browser_language = detect_browser_language()
         browser_language_option = ['it','en']
         language = st.selectbox(
             label=":orange[Language]",
@@ -111,7 +111,6 @@ def main():
         )
 
 
-        # Corretto qui: otteniamo il risultato del pulsante in una variabile
         search_button = st.button(
             label="Search",
             type="primary",
