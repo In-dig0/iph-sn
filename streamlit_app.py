@@ -22,17 +22,6 @@ def get_binary_file_downloader_html(file_path, file_label):
 
 def main():
 
-
-    # Example:
-    # https://your_app.streamlit.app/?first_key=1&second_key=two
-    
-    # https://iph-sn-ep33nvbuic6zbq7uqvbxbm.streamlit.app/?sn=25007677
-
-    # st.info(f"Product number: {st.query_params["pn"]}", icon="ℹ️")
-    # st.info(f"Serial number: {st.query_params["sn"]}", icon="ℹ️")
-
-    #st.info(f"{st.query_params}")
-
     st.sidebar.image("https://iph.it/wp-content/uploads/2020/02/logo-scritta.png", width=140)
 
     st.title(f":blue[IPH Specification Sheet Portal]")
