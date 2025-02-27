@@ -62,10 +62,10 @@ def main():
     
     sn = st.query_params.get('sn', None)
     if sn is None:
-        st.error("**ERROR: URL doesn't containt serial number. Add '?sn=SERIAL_NUMBER' to the URL.")
+        st.error("**ERROR: URL doesn't containt serial number. Add '?sn=SERIAL_NUMBER' to the URL.", icon='🚨')
         st.stop()
     if sn not in sn_list:
-        st.error(f"**ERROR: Serial number {sn} does not exists!")
+        st.error(f"**ERROR: Serial number {sn} does not exists!", icon='🚨')
         st.stop()
 
     st.subheader(f":grey[Product section]")
