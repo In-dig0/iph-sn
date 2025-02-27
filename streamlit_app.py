@@ -121,39 +121,24 @@ def main():
         )
 
     if search_button:
-        if attachment_type == 'Specification sheet':
-            file_folder = f"files/{select_language}/"
-            pdf_filename = f"FIG-{product_nr}.pdf"
+        folder_option = {"Specification sheet":"tech_sheet"}
+        attach_prefix_name = {"Specification sheet": "FIG", "Other": "OTH"}
+        file_folder = f"files/{folder_option[attachment_type]}/{select_language}/"
+        pdf_filename = f"{attach_prefix_name[attachment_type]}-{product_nr}.pdf"
         # Percorso relativo alla cartella files
-            pdf_path = os.path.join("files", pdf_filename)
+        pdf_path = os.path.join("files", pdf_filename)
         
-            try:
-                # Verifica se il file esiste
-                if os.path.exists(pdf_path):
-                    st.success(f"File found: {pdf_path}")
-                    # Utilizza la funzione di download
-                    get_binary_file_downloader_html(pdf_path, "Download")
-                else:
-                    st.error(f"File not found: {pdf_path}")
-            except Exception as e:
-                st.error(f"**ERROR reading the PDF file: {e}")
-        elif attachment_type == 'Other':
-            pdf_filename = f"OTH-{product_nr}.pdf"
-        # Percorso relativo alla cartella files
-            pdf_path = os.path.join("files", pdf_filename)
+        try:
+            # Verifica se il file esiste
+            if os.path.exists(pdf_path):
+                st.success(f"File found: {pdf_path}")
+                # Utilizza la funzione di download
+                get_binary_file_downloader_html(pdf_path, "Download")
+            else:
+                st.error(f"File not found: {pdf_path}")
+        except Exception as e:
+            st.error(f"**ERROR reading the PDF file: {e}")
         
-            try:
-                # Verifica se il file esiste
-                if os.path.exists(pdf_path):
-                    st.success(f"File found: {pdf_path}")
-                    # Utilizza la funzione di download
-                    get_binary_file_downloader_html(pdf_path, "PDF Download")
-                else:
-                    st.error(f"File not found: {pdf_path}")
-            except Exception as e:
-                st.error(f"**ERROR reading the PDF file: {e}")
-
-            
            
    
 
