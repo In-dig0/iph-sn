@@ -113,9 +113,9 @@ def main():
             disabled=False
         )
 
-        if selected_language == None or selected_attachment_type == None:       
-            st.warning("Please select language and attachment type first!", icon="⚠️")
-            st.stop()
+        # if selected_language == None or selected_attachment_type == None:       
+        #     st.warning("Please select language and attachment type first!", icon="⚠️")
+        #     st.stop()
 
         submitted = st.form_submit_button(label="Search", type="primary", icon=":material/search:")
     
