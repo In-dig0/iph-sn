@@ -121,7 +121,7 @@ def main():
         if submitted:
             folder_option = {"Specification sheet":"tech_sheet", "Other":"other"}
             attach_prefix_name = {"Specification sheet": "FIG", "Other": "OTH"}
-            file_folder = f"files/{folder_option[selected_attachment_type]}/{select_language}/"
+            file_folder = f"files/{folder_option[selected_attachment_type]}/{selected_language}/"
             pdf_filename = f"{attach_prefix_name[selected_attachment_type]}-{product_nr}.pdf"
             # Percorso relativo alla cartella files
             pdf_path = os.path.join(file_folder, pdf_filename)
