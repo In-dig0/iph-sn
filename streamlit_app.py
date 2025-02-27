@@ -94,20 +94,20 @@ def main():
         )
     
     st.subheader(f":grey[Attachment section]")  
-    with st.container(border=True):  
+    
+    with st.form("attachment_form"):
         st.warning("Please select language and attachment type first!")
-        #browser_detected_language = detect_browser_language().strip()
-        #st.write(type(browser_detected_language))
+        browser_detected_language = detect_browser_language()
         browser_language_option = ['it','en']
-        select_language = st.selectbox(
+        selected_language = st.selectbox(
             label=":orange[Language]",
             options=browser_language_option,
-            index=browser_language_option.index(detect_browser_language()),
+            index=browser_language_option.index(browser_detected_language),
             #index=None,
             disabled=False
         )
 
-        attachment_type = st.selectbox(
+        selected_attachment_type = st.selectbox(
             label=":orange[Attachment type]",
             options=['Specification sheet','Other'],
             index=0,
@@ -121,7 +121,9 @@ def main():
             icon=":material/search:"
         )
 
-    if search_button:
+    search_button_disabled = not (selected_language and selected_attachment_type)
+    submitted = st.form_submit_button("Search", disabled=search_button_disabled)
+    if submitted:
         folder_option = {"Specification sheet":"tech_sheet", "Other":"other"}
         attach_prefix_name = {"Specification sheet": "FIG", "Other": "OTH"}
         file_folder = f"files/{folder_option[attachment_type]}/{select_language}/"
@@ -140,7 +142,7 @@ def main():
         except Exception as e:
             st.error(f"**ERROR reading the PDF file: {e}")
         
-           
+        
    
 
 if __name__ == "__main__":
