@@ -117,7 +117,8 @@ def main():
             st.warning("Please select language and attachment type first!", icon="⚠️")
             st.stop()
 
-    submitted = st.form_submit_button(label="Search", type="primary", icon=":material/search:")
+        submitted = st.form_submit_button(label="Search", type="primary", icon=":material/search:")
+    
     if submitted:
         folder_option = {"Specification sheet":"tech_sheet", "Other":"other"}
         attach_prefix_name = {"Specification sheet": "FIG", "Other": "OTH"}
