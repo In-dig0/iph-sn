@@ -96,13 +96,13 @@ def main():
     st.subheader(f":grey[Attachment section]")  
     
     with st.form("attachment_form"):
-        #browser_detected_language = detect_browser_language()
+        browser_detected_language = detect_browser_language()
         browser_language_option = ['it','en']
         selected_language = st.selectbox(
             label=":orange[Language]",
             options=browser_language_option,
-            #index=browser_language_option.index(browser_detected_language),
-            index=None,
+            index=browser_language_option.index(browser_detected_language),
+            #index=None,
             disabled=False
         )
 
