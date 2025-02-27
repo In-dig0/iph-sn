@@ -39,19 +39,24 @@ def main():
 
     sn_list = ["25007676", "25007677"]
     pn_list = ["5C1440154403AN", "5F1370116301AN"]
-    desc_list = ["5C-04870-154-4-M0343-0000N", "5F-03450-116-3-M1460-0000N"]
+    desc1_list = ["5C-04870-154-4-M0343-0000N", "5F-03450-116-3-M1460-0000N"]
+    desc2_list = ["Alternative_descrption_pn1", "Alternative_descrption_pn2"]
     
-    
-    sn = st.query_params.get('sn', None)
-    if sn is None:
-        st.error("**ERROR: URL doesn't containt serial number. Add '?sn=SERIAL_NUMBER' to the URL.", icon='🚨')
+    #sn = st.query_params.get('sn', None)
+    # if sn is None:
+    #     st.error("**ERROR: URL doesn't containt serial number. Add '?sn=SERIAL_NUMBER' to the URL.", icon='🚨')
+    #     st.stop()
+    # if sn not in sn_list:
+    #     st.error(f"**ERROR: Serial number {sn} does not exists!", icon='🚨')
+    #     st.stop()
+    pn = st.query_params.get('pn', None)
+    if pn is None:
+        st.error("**ERROR: URL doesn't containt product number. Add '?pn=PRODUCT_NUMBER' to the URL.", icon='🚨')
         st.stop()
-    if sn not in sn_list:
-        st.error(f"**ERROR: Serial number {sn} does not exists!", icon='🚨')
+    if pn not in pn_list:
+        st.error(f"**ERROR: Product number {pn} does not exists!", icon='🚨')
         st.stop()
 
-    st.subheader(f":grey[Product section]")
-    
     with st.expander("Device browser info"):
         browser_values = browser_detection_engine()
         st.write(f"Browser values:")
@@ -59,27 +64,36 @@ def main():
         browser_detected_language = detect_browser_language()
         st.write(f"Browser language:\n{browser_detected_language}")
 
+    st.subheader(f":grey[Product section]")
+    
     with st.container(border=True):   
-        obj_idx = sn_list.index(st.query_params['sn'])
-        serial_nr = st.selectbox(
-            label=":orange[Serial number]",
-            options=sn_list,
-            index=sn_list.index(st.query_params['sn']),
-            disabled=True
-        )
-
+        #obj_idx = sn_list.index(st.query_params['sn'])
+        # serial_nr = st.selectbox(
+        #     label=":orange[Serial number]",
+        #     options=sn_list,
+        #     index=sn_list.index(st.query_params['sn']),
+        #     disabled=True
+        # )
+        
+        obj_idx = pn_list.index(st.query_params['pn'])
         product_nr = st.text_input(
             label=":orange[Product number]",
             value=pn_list[obj_idx],
             disabled=True
         )
 
-        product_desc = st.text_input(
-            label=":orange[Product description]",
-            value=desc_list[obj_idx],
+        product_desc1 = st.text_input(
+            label=":orange[Product description 1]",
+            value=desc1_list[obj_idx],
             disabled=True
         )
-    
+
+        product_desc2 = st.text_input(
+            label=":orange[Product description 2]",
+            value=desc2_list[obj_idx],
+            disabled=True
+        )
+
     st.subheader(f":grey[Attachment section]")  
     
     with st.form("attachment_form"):
