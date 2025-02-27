@@ -126,7 +126,7 @@ def main():
         file_folder = f"files/{folder_option[attachment_type]}/{select_language}/"
         pdf_filename = f"{attach_prefix_name[attachment_type]}-{product_nr}.pdf"
         # Percorso relativo alla cartella files
-        pdf_path = os.path.join("files", pdf_filename)
+        pdf_path = os.path.join(file_folder, pdf_filename)
         
         try:
             # Verifica se il file esiste
