@@ -102,11 +102,16 @@ def main():
     with st.form("attachment_form"):
         
         browser_language_option = ['it','en']
+        if browser_detected_language:
+            lang_idx = browser_language_option.index(browser_detected_language)
+        else:
+            lang_idx = None
+
         selected_language = st.selectbox(
             label=":orange[Language]",
             options=browser_language_option,
-            #index=browser_language_option.index(browser_detected_language),
-            index=None,
+            index=lang_idx,
+            #index=None,
             disabled=False
         )
 
