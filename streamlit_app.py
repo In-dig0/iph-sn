@@ -69,10 +69,13 @@ def main():
         st.stop()
 
     st.subheader(f":grey[Product section]")
+    
     with st.expander("Device browser info"):
         value = browser_detection_engine()
         st.write(value)
         browser_detected_language = detect_browser_language()
+        st.write(browser_detected_language)
+
     with st.container(border=True):   
         obj_idx = sn_list.index(st.query_params['sn'])
         serial_nr = st.selectbox(
