@@ -96,7 +96,6 @@ def main():
     st.subheader(f":grey[Attachment section]")  
     
     with st.form("attachment_form"):
-        st.warning("Please select language and attachment type first!")
         #browser_detected_language = detect_browser_language()
         browser_language_option = ['it','en']
         selected_language = st.selectbox(
@@ -114,9 +113,11 @@ def main():
             disabled=False
         )
 
+        if selected_language == None and selected_attachment_type == None:       
+            st.warning("Please select language and attachment type first!", icon="")
+            st.stop()
 
-        search_button_disabled = not (selected_language and selected_attachment_type)
-        submitted = st.form_submit_button(label="Search", type="primary", icon=":material/search:", disabled=search_button_disabled)
+        submitted = st.form_submit_button(label="Search", type="primary", icon=":material/search:")
         if submitted:
             folder_option = {"Specification sheet":"tech_sheet", "Other":"other"}
             attach_prefix_name = {"Specification sheet": "FIG", "Other": "OTH"}
