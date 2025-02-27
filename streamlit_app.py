@@ -95,12 +95,7 @@ def main():
     
     st.subheader(f":grey[Attachment section]")  
     with st.container(border=True):  
-        attachment_type = st.selectbox(
-            label=":orange[Attachment type]",
-            options=['Specification sheet','Other'],
-            index=0,
-            disabled=False
-        )
+
         browser_detected_language = detect_browser_language()
         browser_language_option = ['it','en']
         language = st.selectbox(
@@ -111,7 +106,13 @@ def main():
             disabled=False
         )
 
-
+        attachment_type = st.selectbox(
+            label=":orange[Attachment type]",
+            options=['Specification sheet','Other'],
+            index=0,
+            disabled=False
+        )
+        
         search_button = st.button(
             label="Search",
             type="primary",
