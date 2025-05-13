@@ -22,6 +22,8 @@ def get_binary_file_downloader_html(file_path, file_label):
 
 def main():
 
+    # Link funzionante: https://iph-sn-ep33nvbuic6zbq7uqvbxbm.streamlit.app/?pn=5F1370116301AN
+    
     st.sidebar.image("https://iph.it/wp-content/uploads/2020/02/logo-scritta.png", width=140)
 
     st.title(f":blue[IPH Specification Sheet Portal]")
